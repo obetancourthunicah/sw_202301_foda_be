@@ -59,11 +59,17 @@ router.post('/new', (req, res) => {
 router.put('/upd/:id', (req, res) => {
   const { id } = req.params;
   const {
-    nombre="John Doe Corp",
-    status="Activo",
+    nombre="----NotRecieved------",
+    status="----NotRecieved------",
     observacion = ""
   } = req.body;
 
+  if (
+    nombre === "----NotRecieved------"
+    || status === "----NotRecieved------"
+  ) {
+    return res.status(403).json({"error":"Debe venir el nombre y status correctos"});
+  }
   const UpdateEmpresa : IEmpresa = {
     codigo: id,
     nombre,

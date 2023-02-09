@@ -36,14 +36,16 @@ export class Empresas {
   }
 
   update(updateEmpresa: IEmpresa){
+    let updated = false;
     const newEmpresas: IEmpresa[] = this.empresas.map((emp)=>{
       if ( emp.codigo === updateEmpresa.codigo ) {
+        updated = true;
         return {...emp, ...updateEmpresa, updated: new Date()};
       }
       return emp;
     });
     this.empresas = newEmpresas;
-    return true;
+    return updated;
   }
   delete(codigo: string){
     const empresaToDelete = this.empresas.find((emp)=>{
