@@ -1,11 +1,9 @@
 import { IEmpresa } from "@dao/models/Empresas/IEmpresas";
 import { IDataAccessObject } from "@dao/IDataAccessObject";
 export class Empresas {
-  private empresas: IEmpresa[];
   private dao: IDataAccessObject;
   constructor(dao: IDataAccessObject) {
     this.dao = dao;
-    this.empresas = [];
   }
   getAll() {
     return this.dao.findAll();
