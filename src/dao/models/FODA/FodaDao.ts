@@ -24,4 +24,12 @@ export class FodaDao extends MongoDAOBase<IFoda> {
     };
     return super.create(newFoda);
   }
+  public async updateCounter( fodaId: string|ObjectId, type: 'F'|'D'|'A'|'O') {
+    let oFodaId = typeof fodaId == 'string' ? new ObjectId(fodaId): fodaId;
+    let filter = {_id: oFodaId};
+    let updCmd = {"$inc":{"entradas" :1}, "$set": {"updatedAt": new Date()}}
+    updCmd["$inc"][`${type}cantidad`] = 1;
+    console.log('updateCounter:', {updCmd, oFodaId});
+    return super.rawUpdate(filter, updCmd);
+  }
 }

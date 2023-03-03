@@ -5,12 +5,12 @@ export interface IFoda extends IAuditable {
   _id?: ObjectId | string;
   nombre: string;
   owner : {
-    id: ObjectId,
+    id: ObjectId | string,
     usuario: string,
     email: string
   },
   empresa : {
-    id: ObjectId,
+    id: ObjectId | string,
     nombre: string
   },
   entradas: number,
@@ -24,12 +24,12 @@ export interface IFoda extends IAuditable {
 export const DefaultFoda: IFoda = {
   nombre: '',
   owner: {
-    id: new ObjectId,
+    id: '',
     usuario: '',
     email: ''
   },
   empresa: {
-    id: new ObjectId,
+    id: '',
     nombre: ''
   },
   entradas: 0,
