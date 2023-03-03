@@ -18,6 +18,11 @@ empresasDao.init().then(()=>{
 });
 const router = express.Router();
 
+router.get('/:empresa/foda', async (req, res)=>{
+  const {empresa} = req.params;
+  const fodas = await fodaModel.getAllFromEmpresa(empresa);
+  return res.status(200).json(fodas);
+});
 
 router.post('/:empresa/new', async (req, res)=>{
   const { empresa }  = req.params as {empresa:string};
@@ -29,8 +34,27 @@ router.post('/:empresa/new', async (req, res)=>{
 router.put('/:empresa/tmp/:fodaId', async (req, res)=>{
   const {fodaId} = req.params;
   const {type} = req.body;
-  const updt = await fodaModel.updateFoda(fodaId, type);
-  return res.status(200).json(updt);
+  const updObject = await fodaModel.updateFoda(fodaId, type);
+  return res.status(200).json(updObject);
+});
+
+router.put('/:empresa/upd/:fodaId/nombre', async (req, res)=>{
+  const {fodaId} = req.params;
+  const {nombre} = req.body;
+  const updObject = await fodaModel.setNombre(fodaId, nombre);
+  return res.status(200).json(updObject);
+});
+router.put('/:empresa/upd/:fodaId/estado', async (req, res)=>{
+  const {fodaId} = req.params;
+  const {estado} = req.body;
+  const updObject = await fodaModel.setEstado(fodaId, estado);
+  return res.status(200).json(updObject);
+});
+router.put('/:empresa/upd/:fodaId/observacion', async (req, res)=>{
+  const {fodaId} = req.params;
+  const {observacion} = req.body;
+  const updObject = await fodaModel.setObservation(fodaId, observacion);
+  return res.status(200).json(updObject);
 });
 
 export default router;
