@@ -1,7 +1,6 @@
 import { IDataAccessObject } from "@dao/IDataAccessObject";
 import { FodaDao } from "@server/dao/models/FODA/FodaDao";
 import { IFoda, IFodaEstados } from "@server/dao/models/Foda/IFoda";
-import { ObjectId } from "mongodb";
 
 export class Foda {
   private fodaDao: FodaDao;
@@ -43,7 +42,7 @@ export class Foda {
     return this.setUpdates(fodaId, { estado });
   }
   public getAllFromEmpresa(empresaId: string) {
-    return this.fodaDao.findByFilter({ "empresa.id": new ObjectId(empresaId) });
+    return this.fodaDao.findByFilter({ "empresa.id": this.fodaDao.getIDFromString(empresaId) });
   }
 }
 

@@ -60,5 +60,8 @@ export abstract class MongoDAOBase<T> implements IDataAccessObject {
   rawUpdate(filter: Filter<T>, update: UpdateFilter<T>){
     return this.collection.updateOne(filter, update);
   }
+  getIDFromString(id: string){
+    return new ObjectId(id);
+  }
 
 }

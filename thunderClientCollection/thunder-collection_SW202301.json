@@ -1,0 +1,323 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "SW202301",
+    "dateExported": "2023-03-07T00:49:01.035Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "2d7864f1-c572-4ffc-b763-67f1685e8ed4",
+            "name": "empresas",
+            "containerId": "",
+            "created": "2023-01-27T22:44:54.376Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "5034bd08-e345-4b7b-81d9-aae4143ee554",
+            "name": "foda",
+            "containerId": "",
+            "created": "2023-03-02T00:45:19.726Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "52d8e272-cda1-4aef-b95d-b3a148795c08",
+            "colId": "9f2ca59a-edac-4910-b13d-a5fd70436dcb",
+            "containerId": "",
+            "name": "/",
+            "url": "{{HOST}}",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-01-27T22:43:33.628Z",
+            "modified": "2023-01-27T22:50:23.937Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "efbda3d1-cded-4803-b399-60caa783b0c2",
+            "colId": "9f2ca59a-edac-4910-b13d-a5fd70436dcb",
+            "containerId": "2d7864f1-c572-4ffc-b763-67f1685e8ed4",
+            "name": "get Endpoints",
+            "url": "{{HOST}}/empresas",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-01-27T22:45:08.722Z",
+            "modified": "2023-01-27T22:49:25.596Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "1a448b21-f3f8-4bae-950b-ec06b89180ee",
+            "colId": "9f2ca59a-edac-4910-b13d-a5fd70436dcb",
+            "containerId": "",
+            "name": "/version",
+            "url": "{{HOST}}/version",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-01-27T22:50:36.863Z",
+            "modified": "2023-01-27T22:50:52.344Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e5f0edcd-a826-4977-abef-001758acd518",
+            "colId": "9f2ca59a-edac-4910-b13d-a5fd70436dcb",
+            "containerId": "2d7864f1-c572-4ffc-b763-67f1685e8ed4",
+            "name": "/getAll",
+            "url": "{{HOST}}/empresas/all",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-01-27T22:51:07.663Z",
+            "modified": "2023-03-07T00:29:46.624Z",
+            "headers": [
+                {
+                    "name": "apikey",
+                    "value": "c3dfc3cf-6147-4658-a548-238ff24b404c"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3112602b-755c-4988-a240-e983bea40719",
+            "colId": "9f2ca59a-edac-4910-b13d-a5fd70436dcb",
+            "containerId": "2d7864f1-c572-4ffc-b763-67f1685e8ed4",
+            "name": "/new Post",
+            "url": "{{HOST}}/empresas/new",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-02-01T00:34:14.125Z",
+            "modified": "2023-02-10T02:44:08.213Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"codigo\": \"ABC_1\",\n  \"nombre\": \"Corporación ABC\",\n  \"status\": \"Pending\",\n  \"otroDato\": \"Algo que no debe usarse\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "77a433f4-dcef-4dfd-bb31-b7579d58c3c0",
+            "colId": "9f2ca59a-edac-4910-b13d-a5fd70436dcb",
+            "containerId": "2d7864f1-c572-4ffc-b763-67f1685e8ed4",
+            "name": "/upd put",
+            "url": "{{HOST}}/empresas/upd/{id}",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2023-02-01T00:49:07.830Z",
+            "modified": "2023-02-10T02:45:32.177Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "63e5af7b0230322f2d4d5c4a",
+                    "isPath": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"codigo\":\"ABC_2\",\n  \"nombre\":\"Corporación EFG\",\n  \"status\":\"Active\",\n  \"observacion\":\"Esto fue una modificación\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "58fdbbbb-5726-4ba9-be5e-0a712b89619e",
+            "colId": "9f2ca59a-edac-4910-b13d-a5fd70436dcb",
+            "containerId": "2d7864f1-c572-4ffc-b763-67f1685e8ed4",
+            "name": "/del delete",
+            "url": "{{HOST}}/empresas/del/{id}",
+            "method": "DELETE",
+            "sortNum": 70000,
+            "created": "2023-02-02T00:30:18.347Z",
+            "modified": "2023-02-02T00:36:36.404Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "684.39194224753861675298140699",
+                    "isPath": true
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "8f538003-0a1b-48d1-af01-f5923688c6a4",
+            "colId": "9f2ca59a-edac-4910-b13d-a5fd70436dcb",
+            "containerId": "2d7864f1-c572-4ffc-b763-67f1685e8ed4",
+            "name": "/byid  get",
+            "url": "{{HOST}}/empresas/byid/{id}",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-02-02T00:37:56.751Z",
+            "modified": "2023-02-10T02:44:51.112Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "63e5af7b0230322f2d4d5c4a",
+                    "isPath": true
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "2e74e91c-4c15-4121-9f31-ab4e13aa6a1e",
+            "colId": "9f2ca59a-edac-4910-b13d-a5fd70436dcb",
+            "containerId": "5034bd08-e345-4b7b-81d9-aae4143ee554",
+            "name": "Create Foda",
+            "url": "{{HOST}}/foda/{empresaId}/new",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2023-03-02T00:46:48.197Z",
+            "modified": "2023-03-02T00:51:39.995Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "empresaId",
+                    "value": "63e5af7b0230322f2d4d5c4a",
+                    "isPath": true
+                }
+            ],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "nombre",
+                        "value": "Foda para mi Empresa"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "ba8cded2-2b4c-43e4-8a51-e486bb0991b1",
+            "colId": "9f2ca59a-edac-4910-b13d-a5fd70436dcb",
+            "containerId": "5034bd08-e345-4b7b-81d9-aae4143ee554",
+            "name": "Create Foda Tmp Update",
+            "url": "{{HOST}}/foda/{empresaId}/tmp/{fodaId}",
+            "method": "PUT",
+            "sortNum": 100000,
+            "created": "2023-03-03T00:46:47.013Z",
+            "modified": "2023-03-03T00:52:46.448Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "empresaId",
+                    "value": "63e5af7b0230322f2d4d5c4a",
+                    "isPath": true
+                },
+                {
+                    "name": "fodaId",
+                    "value": "64013be864fe7f7f8cd4dbd2",
+                    "isPath": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"type\":\"O\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d6dd01b5-3eef-4a41-abd7-7f9da5f282f0",
+            "colId": "9f2ca59a-edac-4910-b13d-a5fd70436dcb",
+            "containerId": "5034bd08-e345-4b7b-81d9-aae4143ee554",
+            "name": "Get All from Empresa",
+            "url": "{{HOST}}/foda/{empresaId}/foda",
+            "method": "GET",
+            "sortNum": 105000,
+            "created": "2023-03-03T22:58:41.751Z",
+            "modified": "2023-03-03T22:59:40.010Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "empresaId",
+                    "value": "63e5af7b0230322f2d4d5c4a",
+                    "isPath": true
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "e7a66c45-8f3b-418e-9d6e-7dfde548c5bc",
+            "colId": "9f2ca59a-edac-4910-b13d-a5fd70436dcb",
+            "containerId": "5034bd08-e345-4b7b-81d9-aae4143ee554",
+            "name": "Update Nombre",
+            "url": "{{HOST}}/foda/{empresaId}/upd/{fodaId}/nombre",
+            "method": "PUT",
+            "sortNum": 110000,
+            "created": "2023-03-03T22:50:21.341Z",
+            "modified": "2023-03-03T23:01:47.368Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "empresaId",
+                    "value": "63e5af7b0230322f2d4d5c4a",
+                    "isPath": true
+                },
+                {
+                    "name": "fodaId",
+                    "value": "63fff31b405c58728ed0ddaa",
+                    "isPath": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\":\"Analiss Estrategico\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "215c10cf-08b3-4af3-a675-1115dfb3c6af",
+            "colId": "9f2ca59a-edac-4910-b13d-a5fd70436dcb",
+            "containerId": "5034bd08-e345-4b7b-81d9-aae4143ee554",
+            "name": "Update Estado",
+            "url": "{{HOST}}/foda/{empresaId}/upd/{fodaId}/estado",
+            "method": "PUT",
+            "sortNum": 120000,
+            "created": "2023-03-03T22:53:21.199Z",
+            "modified": "2023-03-03T22:53:50.352Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "empresaId",
+                    "value": "63e5af7b0230322f2d4d5c4a",
+                    "isPath": true
+                },
+                {
+                    "name": "fodaId",
+                    "value": "64013be864fe7f7f8cd4dbd2",
+                    "isPath": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"estado\":\"E\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ],
+    "settings": {
+        "headers": [
+            {
+                "name": "apikey",
+                "value": "c3dfc3cf-6147-4658-a548-238ff24b404c"
+            },
+            {
+                "name": "origin",
+                "value": "local.stw.com:3001"
+            }
+        ],
+        "tests": [],
+        "envId": "4e6a8dd3-3a1a-4096-a982-91007c86c34e"
+    }
+}

@@ -8,7 +8,7 @@ const createServer = () => {
   const app = express();
   app.use(express.urlencoded({ extended: true }));
   app.use(expressLogger);
-  app.use(cors());
+  app.use(cors({origin:'local.sw.com:3001'}));
   app.use(express.json());
   app.disable('x-powered-by');
   app.use('/', rootRoute);
