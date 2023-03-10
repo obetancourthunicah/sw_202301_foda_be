@@ -2,6 +2,7 @@ import express from 'express';
 const router  = express.Router();
 
 import {validateKeyMiddleWare} from './middlewares/apikeyValidator';
+import {validateJwtMiddleWare} from './middlewares/jwtTokenValidator';
 
 
 // REST API
@@ -28,13 +29,15 @@ router.get('/version', (_req, res)=>{
   // string, number, boolean, types, interfaces, classes, enumerators
   res.json(jsonResp);
  });
-// Aplicar Middlewares
 
+import securityRoutes from './security/security';
+// Aplicar Middlewares
+router.use('/security', securityRoutes);
 import empresasRouter from './empresas/empresas';
-router.use('/empresas', validateKeyMiddleWare, empresasRouter);
+router.use('/empresas', validateKeyMiddleWare, validateJwtMiddleWare, empresasRouter);
 
 import fodaRouter from './foda/foda';
-router.use('/foda', validateKeyMiddleWare, fodaRouter);
+router.use('/foda', validateKeyMiddleWare, validateJwtMiddleWare, fodaRouter);
  //router.get  router.post router.put router.delete  router.use
 
 export default router;

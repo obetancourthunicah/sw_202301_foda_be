@@ -1,5 +1,5 @@
-import {ObjectId} from 'mongodb';
-import {IAuditable} from '../IAuditable';
+import { ObjectId } from 'mongodb';
+import { IAuditable } from '../IAuditable';
 
 export enum IFodaEstados {
   Planning = "P",
@@ -10,12 +10,12 @@ export enum IFodaEstados {
 export interface IFoda extends IAuditable {
   _id?: ObjectId | string;
   nombre: string;
-  owner : {
+  owner: {
     id: ObjectId | string,
     usuario: string,
     email: string
   },
-  empresa : {
+  empresa: {
     id: ObjectId | string,
     nombre?: string
   },
@@ -28,27 +28,26 @@ export interface IFoda extends IAuditable {
   Acantidad: number
 }
 
-export const DefaultFoda: IFoda = {
-  nombre: '',
-  owner: {
-    id: '',
-    usuario: '',
-    email: ''
-  },
-  empresa: {
-    id: '',
-    nombre: ''
-  },
-  entradas: 0,
-  Fcantidad: 0,
-  Dcantidad: 0,
-  Ocantidad: 0,
-  Acantidad: 0,
-  createdAt: new Date(),
-  updatedAt: new Date(),
-  estado: IFodaEstados.Planning
-}
-
-export interface IFodaEntry {
-
+export const DefaultFoda = (): IFoda => {
+  const df: IFoda = {
+    nombre: '',
+    owner: {
+      id: '',
+      usuario: '',
+      email: ''
+    },
+    empresa: {
+      id: '',
+      nombre: ''
+    },
+    entradas: 0,
+    Fcantidad: 0,
+    Dcantidad: 0,
+    Ocantidad: 0,
+    Acantidad: 0,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    estado: IFodaEstados.Planning
+  };
+  return df;
 }

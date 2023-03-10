@@ -1,5 +1,6 @@
 import { IDataAccessObject } from "@dao/IDataAccessObject";
 import { UserDao } from "@dao/models/Users/UserDao";
+import { JWT } from "@server/utils/Jwt";
 import { Security } from "@utils/Security";
 
 export class Users {
@@ -25,10 +26,17 @@ export class Users {
   }
   public async loginUser(email:string, password:string) {
     try{
-      const dbUser = await this.userDao.findOneByFilter({email});
+      const dbUser = await this.userDao.findOneByFilter(
+        {email},
+        {projection:{_id:1, email:1, password:1, state:1, roles:1, pswdExpires:1, avatar:1}}
+      );
       if (Security.verifyPassword(password, dbUser.password)){
         delete dbUser.password;
+        delete dbUser.pswdExpires;
+        delete dbUser.state;
         // JWT
+        const token = JWT.singJWT(dbUser);
+        return token;
       }
     }catch(err){
       console.error(err);
