@@ -3,14 +3,11 @@ import { EmpresasDao } from '@dao/models/Empresas/EmpresasDao';
 import { FodaDao } from '@dao/models/Foda/FodaDao';
 import { MongoDBConn } from '@dao/MongoDBConn';
 import {Foda} from '@libs/Foda/Foda';
-import { Empresas } from '@libs/Empresas/Empresas';
 
 const empresasDao = new EmpresasDao(MongoDBConn);
 let fodaDao;
-let empresasModel:Empresas;
 let fodaModel:Foda;
 empresasDao.init().then(()=>{
-  empresasModel = new Empresas(empresasDao);
   fodaDao = new FodaDao(MongoDBConn, empresasDao);
   fodaDao.init().then(()=>{
     fodaModel = new Foda(fodaDao);

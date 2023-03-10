@@ -17,7 +17,7 @@ router.post('/signin', async (req, res)=> {
     return res.status(200).json({msg:`User Created with id ${newUser._id}`});
   } catch (error) {
     console.error("/signin error", error);
-    res.status(505).json({error: "Error to create new user"});
+    return res.status(505).json({error: "Error to create new user"});
   }
 });
 
@@ -28,7 +28,7 @@ router.post('/signon', async (req, res)=>{
     return res.status(200).json({token});
   } catch (error) {
     console.error("/signin error", error);
-    res.status(505).json({error: "Error to signon user"});
+    return res.status(505).json({error: "Error to signon user"});
   }
 });
 

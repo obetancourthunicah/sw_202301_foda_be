@@ -38,6 +38,8 @@ export class Users {
         const token = JWT.singJWT(dbUser);
         return token;
       }
+      console.error("User.loginUser can´t validate password");
+      throw new Error("Can´t Validate Credentials");
     }catch(err){
       console.error(err);
       throw new Error("Can´t Validate Credentials");
