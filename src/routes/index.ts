@@ -31,8 +31,8 @@ router.get('/version', (_req, res)=>{
  });
 
 import securityRoutes from './security/security';
-// Aplicar Middlewares
-router.use('/security', securityRoutes);
+router.use('/security', validateKeyMiddleWare, securityRoutes);
+
 import empresasRouter from './empresas/empresas';
 router.use('/empresas', validateKeyMiddleWare, validateJwtMiddleWare, empresasRouter);
 

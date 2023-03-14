@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "SW202301",
-    "dateExported": "2023-03-07T00:49:01.035Z",
+    "dateExported": "2023-03-14T00:37:45.403Z",
     "version": "1.1",
     "folders": [
         {
@@ -9,14 +9,37 @@
             "name": "empresas",
             "containerId": "",
             "created": "2023-01-27T22:44:54.376Z",
-            "sortNum": 10000
+            "sortNum": 10000,
+            "settings": {
+                "headers": [],
+                "auth": {
+                    "type": "bearer",
+                    "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBmYmRjNzIyZmYxMzk2Mjg4NjRmNWIiLCJlbWFpbCI6Im9iZXRhbmNvdXJ0aHVuaWNhaEBnbWFpbC5jb20iLCJyb2xlcyI6WyJwdWJsaWMiXSwiaWF0IjoxNjc4NzUzMjYwLCJleHAiOjE2Nzg4Mzk2NjB9.Bys6SBYxEQi0UxPWZvYHyu_VyfuGxuN0-_UcQXp0Ot8"
+                },
+                "tests": []
+            }
         },
         {
             "_id": "5034bd08-e345-4b7b-81d9-aae4143ee554",
             "name": "foda",
             "containerId": "",
             "created": "2023-03-02T00:45:19.726Z",
-            "sortNum": 20000
+            "sortNum": 20000,
+            "settings": {
+                "headers": [],
+                "auth": {
+                    "type": "bearer",
+                    "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBmYmRjNzIyZmYxMzk2Mjg4NjRmNWIiLCJlbWFpbCI6Im9iZXRhbmNvdXJ0aHVuaWNhaEBnbWFpbC5jb20iLCJyb2xlcyI6WyJwdWJsaWMiXSwiaWF0IjoxNjc4NzUzMjYwLCJleHAiOjE2Nzg4Mzk2NjB9.Bys6SBYxEQi0UxPWZvYHyu_VyfuGxuN0-_UcQXp0Ot8"
+                },
+                "tests": []
+            }
+        },
+        {
+            "_id": "fbc40bb1-fa2e-4bb7-a3a7-ce244d3dd6cc",
+            "name": "security",
+            "containerId": "",
+            "created": "2023-03-14T00:16:49.859Z",
+            "sortNum": 30000
         }
     ],
     "requests": [
@@ -71,7 +94,7 @@
             "method": "GET",
             "sortNum": 40000,
             "created": "2023-01-27T22:51:07.663Z",
-            "modified": "2023-03-07T00:29:46.624Z",
+            "modified": "2023-03-14T00:25:19.772Z",
             "headers": [
                 {
                     "name": "apikey",
@@ -79,6 +102,10 @@
                 }
             ],
             "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDBmYmRjNzIyZmYxMzk2Mjg4NjRmNWIiLCJlbWFpbCI6Im9iZXRhbmNvdXJ0aHVuaWNhaEBnbWFpbC5jb20iLCJyb2xlcyI6WyJwdWJsaWMiXSwiaWF0IjoxNjc4NzUzMjYwLCJleHAiOjE2Nzg4Mzk2NjB9.Bys6SBYxEQi0UxPWZvYHyu_VyfuGxuN0-_UcQXp0Ot8"
+            },
             "tests": []
         },
         {
@@ -301,6 +328,44 @@
             "body": {
                 "type": "json",
                 "raw": "{\n  \"estado\":\"E\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d01882aa-9fee-42ee-874b-75ee073131ad",
+            "colId": "9f2ca59a-edac-4910-b13d-a5fd70436dcb",
+            "containerId": "fbc40bb1-fa2e-4bb7-a3a7-ce244d3dd6cc",
+            "name": "signon",
+            "url": "{{HOST}}/security/signon",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2023-03-14T00:17:00.227Z",
+            "modified": "2023-03-14T00:21:00.286Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"password\":\"Konoha%33\",\n  \"email\": \"obetancourthunicah@gmail.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "54f994a6-c53c-47f6-9a21-68c6df4e89ac",
+            "colId": "9f2ca59a-edac-4910-b13d-a5fd70436dcb",
+            "containerId": "fbc40bb1-fa2e-4bb7-a3a7-ce244d3dd6cc",
+            "name": "signin",
+            "url": "{{HOST}}/security/signin",
+            "method": "POST",
+            "sortNum": 140000,
+            "created": "2023-03-14T00:19:41.112Z",
+            "modified": "2023-03-14T00:20:18.706Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"password\":\"Konoha%33\",\n  \"email\": \"obetancourthunicah@gmail.com\"\n}",
                 "form": []
             },
             "tests": []
