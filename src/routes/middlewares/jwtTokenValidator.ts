@@ -6,8 +6,8 @@ export const validateJwtMiddleWare = (req: Request, res: Response, next) => {
     console.log(req.headers);
     const { authorization } = req.headers;
     const token = authorization.replace('Bearer ', '');
-    let decodedJWT;
-    if (decodedJWT = JWT.verifyJWT(token)) {
+    let decodedJWT = JWT.verifyJWT(token);
+    if (decodedJWT) {
       console.log('AUTH OK', decodedJWT);
       req["user"] = decodedJWT;
       return next();
