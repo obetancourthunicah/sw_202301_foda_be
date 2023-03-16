@@ -1,6 +1,6 @@
 import { MongoDAOBase } from '@dao/MongoDAOBase';
 import { IDBConnection } from '@dao/IDBConnection';
-import { IFoda, DefaultFoda } from '@dao/models/Foda/IFoda';
+import { IFoda, DefaultFoda } from './IFoda';
 import { IDataAccessObject } from '@dao/IDataAccessObject';
 import { ObjectId } from 'mongodb';
 import { EFodaType } from './IFodaEntry';
