@@ -18,7 +18,7 @@ const createServer = async () => {
     }));
   } else {
     if (process.env.NODE_ENV !== 'production') {
-      app.use(cors());
+      app.use(cors({origin:'localhost:3001'}));
     } else {
       throw new Error('No se ha definido la variable de entorno ORIGINS');
     }
