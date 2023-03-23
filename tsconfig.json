@@ -17,6 +17,7 @@
     "noUnusedParameters": true,
     "noImplicitAny": false,
     "noImplicitThis": false,
+    "esModuleInterop": true,
     "strictNullChecks": false,
     "outDir": "./build",
     "baseUrl": ".",

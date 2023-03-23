@@ -1,6 +1,5 @@
 import { IDataAccessObject } from "@dao/IDataAccessObject";
 import { FodaEntryDao } from "@dao/models/Foda/FodaEntryDao";
-import { IFoda } from "@dao/models/Foda/IFoda";
 import { FodaDao } from "@server/dao/models/Foda/FodaDao";
 import { EFodaType } from "@server/dao/models/Foda/IFodaEntry";
 

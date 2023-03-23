@@ -16,6 +16,7 @@ export default {
   },
   moduleDirectories: ['node_modules'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  preset: "@shelf/jest-mongodb",
   moduleNameMapper: {
     "@server(.*)$": `${rootDirector}/src$1`,
     "@tests(.*)$": `${rootDirector}/__tests__$1`,
@@ -40,12 +41,15 @@ export default {
   ],
   rootDir: rootDirector,
   roots: [rootDirector],
-  setupFilesAfterEnv: [`${rootDirector}/__tests__/setup.ts`],
+  setupFiles:[
+    'dotenv/config',
+  ],
+  setupFilesAfterEnv: [`${rootDirector}/__tests__/setup.js`],
   testPathIgnorePatterns: [
     '/node_modules/',
     '<rootDir>/build',
     `${rootDirector}/__tests__/fixtures`,
-    `${rootDirector}/__tests__/setup.ts`,
+    `${rootDirector}/__tests__/setup.js`,
   ],
   transform: {
     '^.+\\.ts$': [

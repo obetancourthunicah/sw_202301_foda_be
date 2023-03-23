@@ -5,19 +5,31 @@ import errorHandler from './expressError';
 import expressNotFound from './expressNotFound';
 import expressLogger from './expressLogger';
 const origins = process.env.ORIGINS?.split(',') || [];
-const createServer = () => {
+const createServer = async () => {
   const app = express();
   app.use(express.urlencoded({ extended: true }));
   app.use(expressLogger);
-  app.use(cors((req)=>{
-    if(origins.includes(req.header('Origin'))){
-      return {origin: true};
+  if (origins.length > 0 && process.env.NODE_ENV === 'production') {
+    app.use(cors((req) => {
+      if (origins.includes(req.header('Origin'))) {
+        return { origin: true };
+      }
+      return { origin: false };
+    }));
+  } else {
+    if (process.env.NODE_ENV !== 'production') {
+      app.use(cors());
+    } else {
+      throw new Error('No se ha definido la variable de entorno ORIGINS');
     }
-    return {origin: false};
-  }));
+  }
+
+  console.log(origins);
+
   app.use(express.json());
   app.disable('x-powered-by');
-  app.use('/', rootRoute);
+  const rs = await rootRoute();
+  app.use('/', rs);
   app.use(expressNotFound);
   app.use(errorHandler);
   return app;
