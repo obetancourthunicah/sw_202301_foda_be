@@ -1,7 +1,9 @@
-import path from 'path';
+const  {compilerOptions} = require('./tsconfig.json');
+const {pathsToModuleNameMapper} = require('ts-jest');
+const path = require('path');
 const rootDirector = path.resolve(__dirname);
-
-export default {
+const paths = pathsToModuleNameMapper(compilerOptions.paths, {prefix: '<rootDir>/'});
+module.exports = {
   clearMocks: true,
   collectCoverage: true,
   coverageDirectory: 'coverage',
@@ -18,15 +20,7 @@ export default {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   preset: "@shelf/jest-mongodb",
   moduleNameMapper: {
-    "@server(.*)$": `${rootDirector}/src$1`,
-    "@tests(.*)$": `${rootDirector}/__tests__$1`,
-    "@config(.*)$": `${rootDirector}/src/config$1`,
-    "@handlers(.*)$": `${rootDirector}/src/handlers$1`,
-    "@libs(.*)$": `${rootDirector}/src/libs$1`,
-    "@middleware(.*)$": `${rootDirector}/src/middleware$1`,
-    "@routes(.*)$": `${rootDirector}/src/routes$1`,
-    "@utils(.*)$": `${rootDirector}/src/utils$1`,
-    "@dao(.*)$": `${rootDirector}/src/dao$1`
+    ...paths,
   },
   reporters: [
     'default',
