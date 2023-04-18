@@ -20,19 +20,18 @@
     "esModuleInterop": true,
     "strictNullChecks": false,
     "outDir": "./build",
-    "baseUrl": ".",
     "paths": {
-      "@server/*": ["src/*"],
-      "@tests/*": ["__tests__/*"],
-      "@config/*": ["src/config/*"],
-      "@handlers/*": ["src/handlers/*"],
-      "@libs/*": ["src/libs/*"],
-      "@middleware/*": ["src/middleware/*"],
-      "@routes/*": ["src/routes/*"],
-      "@utils/*": ["src/utils/*"],
-      "@dao/*": ["src/dao/*"]
+      "@server/*": ["./src/*"],
+      "@tests/*": ["./__tests__/*"],
+      "@config/*": ["./src/config/*"],
+      "@handlers/*": ["./src/handlers/*"],
+      "@libs/*": ["./src/libs/*"],
+      "@middleware/*": ["./src/middleware/*"],
+      "@routes/*": ["./src/routes/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@dao/*": ["./src/dao/*"]
     }
   },
-  "include": ["src/**/*.ts", "__tests__/**/*.ts"],
+  "include": ["./src/**/*.ts", "./__tests__/**/*.ts"],
   "exclude": ["node_modules", "build"]
 }
