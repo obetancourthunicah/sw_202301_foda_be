@@ -19,6 +19,8 @@ jobs:
           node-version: '16'
       - name: Install Dependencies
         run: npm install
+      - name: Installed Dependencies
+        run: npm list --depth=0
       - name: Test and coverage
         run: npm test
       - name: SonarCloud Scan
