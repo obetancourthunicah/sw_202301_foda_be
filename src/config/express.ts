@@ -9,13 +9,11 @@ const createServer = async () => {
   const app = express();
   app.use(express.urlencoded({ extended: true }));
   app.use(expressLogger);
-  if (origins.length > 0 && process.env.NODE_ENV === 'production') {
-    app.use(cors((req) => {
-      if (origins.includes(req.header('Origin'))) {
-        return { origin: true };
-      }
-      return { origin: false };
-    }));
+  if (origins.length > 0) {
+    app.use(cors(
+      {origin: (_origin, callback) => {
+        return callback(null, origins);
+    }}));
   } else {
     if (process.env.NODE_ENV !== 'production') {
       app.use(cors({origin:'localhost:3001'}));

@@ -6,7 +6,6 @@ moduleAlias.addAliases({
       "@handlers": `${srcPath}/handlers`,
       "@libs": `${srcPath}/libs`,
       "@middleware": `${srcPath}/middleware`,
-      "@models": `${srcPath}/dao/models`,
       "@routes": `${srcPath}/routes`,
       "@utils": `${srcPath}/utils`,
       "@dao": `${srcPath}/dao`

@@ -28,7 +28,6 @@
       "@handlers/*": ["src/handlers/*"],
       "@libs/*": ["src/libs/*"],
       "@middleware/*": ["src/middleware/*"],
-      "@models/*": ["src/dao/models/*"],
       "@routes/*": ["src/routes/*"],
       "@utils/*": ["src/utils/*"],
       "@dao/*": ["src/dao/*"]

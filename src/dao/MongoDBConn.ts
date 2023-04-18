@@ -27,7 +27,6 @@ export class MongoDBConn implements IDBConnection {
     while(this.state === MongoDBConnState.connecting){
       await new Promise(resolve => setTimeout(resolve, 100));
     }
-    // console.log("Returning DB connection", {mongoURI, mongoDBName});
     return this.connection.db(mongoDBName);
 	}
 }

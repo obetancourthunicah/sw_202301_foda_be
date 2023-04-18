@@ -1,6 +1,6 @@
 import supertest from 'supertest';
 import { createServer } from '@config/express';
-import { MongoDBConn } from '@server/dao/MongoDBConn';
+import { MongoDBConn } from '@dao/MongoDBConn';
 
 describe('Server', () => {
   let server;

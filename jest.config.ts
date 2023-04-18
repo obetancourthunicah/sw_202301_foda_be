@@ -24,7 +24,6 @@ export default {
     "@handlers(.*)$": `${rootDirector}/src/handlers$1`,
     "@libs(.*)$": `${rootDirector}/src/libs$1`,
     "@middleware(.*)$": `${rootDirector}/src/middleware$1`,
-    "@models(.*)$": `${rootDirector}/src/dao/models$1`,
     "@routes(.*)$": `${rootDirector}/src/routes$1`,
     "@utils(.*)$": `${rootDirector}/src/utils$1`,
     "@dao(.*)$": `${rootDirector}/src/dao$1`
