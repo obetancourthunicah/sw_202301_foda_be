@@ -3,7 +3,11 @@ const {pathsToModuleNameMapper} = require('ts-jest');
 const path = require('path');
 const rootDirector = path.resolve(__dirname);
 const paths = pathsToModuleNameMapper(compilerOptions.paths, {prefix: '<rootDir>/'});
-module.exports = {
+const mongoPreset = require('@shelf/jest-mongodb/jest-preset');
+const tsPreset = require('ts-jest/jest-preset');
+
+module.exports ={...mongoPreset, ...tsPreset, ...{
+  verbose: true,
   clearMocks: true,
   collectCoverage: true,
   coverageDirectory: 'coverage',
@@ -18,7 +22,6 @@ module.exports = {
   },
   moduleDirectories: ['node_modules'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  preset: "@shelf/jest-mongodb",
   moduleNameMapper: {
     ...paths,
   },
@@ -52,4 +55,5 @@ module.exports = {
     ],
   },
   testRegex: ['((/__tests__/.*)|(\\.|/)(test|spec))\\.tsx?$'],
-};
+  watchPathIgnorePatterns: ['globalConfig'],
+}};

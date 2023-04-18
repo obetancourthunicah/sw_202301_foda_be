@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node -r tsconfig-paths/register -r dotenv/config src/index",
     "dev": "nodemon --config restart.json",
-    "test": "jest --detectOpenHandles --verbose",
+    "test": "jest --detectOpenHandles",
     "build": "tsc"
   },
   "author": "Orlando J Betancourth orlando.betancourth@gmail.com",
