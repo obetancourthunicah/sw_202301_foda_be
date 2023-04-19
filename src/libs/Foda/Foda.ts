@@ -1,6 +1,6 @@
 import { IDataAccessObject } from "@dao/IDataAccessObject";
 import { FodaDao } from "@dao/models/Foda/FodaDao";
-import { IFoda, IFodaEstados } from "@server/dao/models/Foda/IFoda";
+import { IFoda, IFodaEstados } from "@dao/models/Foda/IFoda";
 import { EFodaType } from "@dao/models/Foda/IFodaEntry";
 
 export class Foda {
@@ -21,7 +21,7 @@ export class Foda {
     }
   }
   public async updateFoda(fodaId: string, type: EFodaType) {
-    const result = await (this.fodaDao as FodaDao).updateCounter(fodaId, type);
+    const result = await this.fodaDao.updateCounter(fodaId, type);
     console.log('updateFoda:', result);
     const rt = await this.fodaDao.findByID(fodaId);
     return rt;

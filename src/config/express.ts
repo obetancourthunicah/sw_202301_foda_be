@@ -4,14 +4,30 @@ import rootRoute from '@routes/index';
 import errorHandler from './expressError';
 import expressNotFound from './expressNotFound';
 import expressLogger from './expressLogger';
-const createServer = () => {
+const origins = process.env.ORIGINS?.split(',') || [];
+const createServer = async () => {
   const app = express();
   app.use(express.urlencoded({ extended: true }));
   app.use(expressLogger);
-  app.use(cors({origin:'local.sw.com:3001'}));
+  if (origins.length > 0) {
+    app.use(cors(
+      {origin: (_origin, callback) => {
+        return callback(null, origins);
+    }}));
+  } else {
+    if (process.env.NODE_ENV !== 'production') {
+      app.use(cors({origin:'localhost:3001'}));
+    } else {
+      throw new Error('No se ha definido la variable de entorno ORIGINS');
+    }
+  }
+
+  console.log(origins);
+
   app.use(express.json());
   app.disable('x-powered-by');
-  app.use('/', rootRoute);
+  const rs = await rootRoute();
+  app.use('/', rs);
   app.use(expressNotFound);
   app.use(errorHandler);
   return app;

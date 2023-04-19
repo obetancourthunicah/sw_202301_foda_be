@@ -1,15 +1,16 @@
 import { MongoDAOBase } from '@dao/MongoDAOBase';
 import { IDBConnection } from '@dao/IDBConnection';
-import { IFoda, DefaultFoda } from '@dao/models/Foda/IFoda';
+import { IFoda, DefaultFoda } from './IFoda';
 import { IDataAccessObject } from '@dao/IDataAccessObject';
+import { EmpresasDao } from '@dao/models/Empresas/EmpresasDao';
 import { ObjectId } from 'mongodb';
 import { EFodaType } from './IFodaEntry';
 
 export class FodaDao extends MongoDAOBase<IFoda> {
-  private empresaDao: IDataAccessObject;
+  private empresaDao: EmpresasDao;
   constructor(conexion: IDBConnection, empresaDao: IDataAccessObject) {
     super("foda", conexion);
-    this.empresaDao = empresaDao;
+    this.empresaDao = empresaDao as EmpresasDao;
   }
   public async create(foda: Partial<IFoda>) {
     const { empresa: { id } } = foda;

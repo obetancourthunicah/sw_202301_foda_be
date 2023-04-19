@@ -1,7 +1,13 @@
-import path from 'path';
+const  {compilerOptions} = require('./tsconfig.json');
+const {pathsToModuleNameMapper} = require('ts-jest');
+const path = require('path');
 const rootDirector = path.resolve(__dirname);
-
-export default {
+const paths = pathsToModuleNameMapper(compilerOptions.paths, {prefix: '<rootDir>/'});
+const mongoPreset = require('@shelf/jest-mongodb/jest-preset');
+const tsPreset = require('ts-jest/jest-preset');
+console.log('paths', paths);
+module.exports ={...mongoPreset, ...tsPreset, ...{
+  verbose: true,
   clearMocks: true,
   collectCoverage: true,
   coverageDirectory: 'coverage',
@@ -14,24 +20,10 @@ export default {
       statements: 80,
     },
   },
-  globals: {
-    'ts-jest': {
-      tsconfig: path.resolve(__dirname, 'tsconfig.json'),
-    },
-  },
   moduleDirectories: ['node_modules'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {
-      "@server(.*)$": `${rootDirector}/src$1`,
-      "@tests(.*)$": `${rootDirector}/__tests__$1`,
-      "@config(.*)$": `${rootDirector}/src/config$1`,
-      "@handlers(.*)$": `${rootDirector}/src/handlers$1`,
-      "@libs(.*)$": `${rootDirector}/src/libs$1`,
-      "@middleware(.*)$": `${rootDirector}/src/middleware$1`,
-      "@models(.*)$": `${rootDirector}/src/dao/models$1`,
-      "@routes(.*)$": `${rootDirector}/src/routes$1`,
-      "@utils(.*)$": `${rootDirector}/src/utils$1`,
-      "@dao(.*)$": `${rootDirector}/src/dao$1`
+    ...paths,
   },
   reporters: [
     'default',
@@ -45,15 +37,23 @@ export default {
   ],
   rootDir: rootDirector,
   roots: [rootDirector],
-  setupFilesAfterEnv: [`${rootDirector}/__tests__/setup.ts`],
+  setupFiles:[
+    'dotenv/config',
+  ],
+  setupFilesAfterEnv: [`${rootDirector}/__tests__/setup.js`],
   testPathIgnorePatterns: [
     '/node_modules/',
     '<rootDir>/build',
     `${rootDirector}/__tests__/fixtures`,
-    `${rootDirector}/__tests__/setup.ts`,
+    `${rootDirector}/__tests__/setup.js`,
   ],
   transform: {
-    '^.+\\.ts$': 'ts-jest',
+    '^.+\\.ts$': [
+      'ts-jest', {
+        tsconfig: path.resolve(__dirname, 'tsconfig.json'),
+      },
+    ],
   },
   testRegex: ['((/__tests__/.*)|(\\.|/)(test|spec))\\.tsx?$'],
-};
+  watchPathIgnorePatterns: ['globalConfig'],
+}};

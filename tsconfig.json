@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "importHelpers": true,
@@ -17,22 +17,21 @@
     "noUnusedParameters": true,
     "noImplicitAny": false,
     "noImplicitThis": false,
+    "esModuleInterop": true,
     "strictNullChecks": false,
     "outDir": "./build",
-    "baseUrl": ".",
     "paths": {
-      "@server/*": ["src/*"],
-      "@tests/*": ["__tests__/*"],
-      "@config/*": ["src/config/*"],
-      "@handlers/*": ["src/handlers/*"],
-      "@libs/*": ["src/libs/*"],
-      "@middleware/*": ["src/middleware/*"],
-      "@models/*": ["src/dao/models/*"],
-      "@routes/*": ["src/routes/*"],
-      "@utils/*": ["src/utils/*"],
-      "@dao/*": ["src/dao/*"]
+      "@server/*": ["./src/*"],
+      "@tests/*": ["./__tests__/*"],
+      "@config/*": ["./src/config/*"],
+      "@handlers/*": ["./src/handlers/*"],
+      "@libs/*": ["./src/libs/*"],
+      "@middleware/*": ["./src/middleware/*"],
+      "@routes/*": ["./src/routes/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@dao/*": ["./src/dao/*"]
     }
   },
-  "include": ["src/**/*", "__tests__/**/*"],
+  "include": ["./src/**/*.ts", "./__tests__/**/*.ts"],
   "exclude": ["node_modules", "build"]
 }
