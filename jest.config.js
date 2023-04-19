@@ -5,7 +5,7 @@ const rootDirector = path.resolve(__dirname);
 const paths = pathsToModuleNameMapper(compilerOptions.paths, {prefix: '<rootDir>/'});
 const mongoPreset = require('@shelf/jest-mongodb/jest-preset');
 const tsPreset = require('ts-jest/jest-preset');
-
+console.log('paths', paths);
 module.exports ={...mongoPreset, ...tsPreset, ...{
   verbose: true,
   clearMocks: true,
