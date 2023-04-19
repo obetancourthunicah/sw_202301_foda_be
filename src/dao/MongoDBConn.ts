@@ -30,3 +30,4 @@ export class MongoDBConn implements IDBConnection {
     return this.connection.db(mongoDBName);
 	}
 }
+export { Db } from 'mongodb';
