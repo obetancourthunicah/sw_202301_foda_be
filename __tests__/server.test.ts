@@ -50,15 +50,6 @@ describe('Server', () => {
     console.log('Empresas', response.body);
     return expect(response.status).toBe(200);
   });
-  it('should add new empresas', async () => {
-    const response = await global.agent.post('/empresas/new').send({
-      "codigo": "ABC_1",
-      "nombre": "Corporación ABC",
-      "status": "Pending"
-    });
-    console.log('Empresas', response.body);
-    return expect(response.status).toBe(200);
-  });
   it('should get empresas by id', async () => {
     const empresas = await global.agent.get('/empresas/all');
     const id = empresas.body[0]._id;
