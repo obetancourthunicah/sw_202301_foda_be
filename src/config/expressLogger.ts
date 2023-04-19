@@ -9,7 +9,6 @@ const onRequestEnd = (req: Request, res: Response, _next: NextFunction) => {
   } else {
     logger.info(`${method} ${url} ${statusCode} ${statusMessage}`);
   }
-  //next();
 }
 const expressLogger = (req: Request, res: Response, next: NextFunction) => {
   res.on('finish', ()=>onRequestEnd(req, res, next));

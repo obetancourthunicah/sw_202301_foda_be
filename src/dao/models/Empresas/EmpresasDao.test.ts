@@ -24,7 +24,6 @@ describe('EmpresasDao', () => {
 
 
   afterAll(async () => {
-    //const db: Db = await MongoDBConn.getConnection();
     await MongoDBConn.connection.close();
   });
 }
