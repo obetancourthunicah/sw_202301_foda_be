@@ -14,3 +14,5 @@ process.env.MONGOMS_DOWNLOAD_URL='https://fastdl.mongodb.org/linux/mongodb-linux
 process.env.LOG_LEVEL = 'debug';
 process.env.MONGO_URI=process.env.MONGO_URL;
 process.env.MONGO_DB_NAME='jestDb';
+process.env.API_KEY='some_test_api_key';
+process.env.JWT_SECRET='some_jwt_secret';
