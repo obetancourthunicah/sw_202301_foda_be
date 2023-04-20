@@ -22,7 +22,9 @@ jobs:
       - name: Installed Dependencies
         run: npm list --depth=0
       - name: Test and coverage
-        run: npm test
+        run: npm test -- --coverage
+      - name: Review if coverage is generated
+        run: ls -l coverage
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
